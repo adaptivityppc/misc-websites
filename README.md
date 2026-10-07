@@ -1,6 +1,6 @@
 # Misc websites and client previews
 
-This repository keeps the existing SLC trip planner at root and a separate folder for each client preview under `demos/<client>/`. DigitalOcean app: `misc-websites` (ID `b23b39ee-68b8-4918-a01e-da1087ac3ecb`). The repository retains its original name so existing integrations stay connected. Big Bash Up remains in the separate `adaptivityppc/website` repository and app.
+This repository keeps the existing SLC trip planner at root and a separate folder for each client preview under `demos/<client>/`. GitHub repository: `adaptivityppc/misc-websites` (renamed from `slc-trip-planner`). DigitalOcean app: `misc-websites` (ID `b23b39ee-68b8-4918-a01e-da1087ac3ecb`). Both static components use this repository, branch `main`, with automatic deployments enabled. The original SLC component name and starter domain remain valid. Big Bash Up remains in the separate `adaptivityppc/website` repository and app.
 
 ## Current client preview
 
