@@ -1,5 +1,5 @@
 {
-  "selection": "Static demo edit of official 2026 Austin Post campaign imagery, not an engagement-ranked selection of verified Instagram posts.",
+  "selection": "Two verified September 1, 2025 Instagram post images from @austinpost, plus two official 2026 website campaign images. No claim that all four tiles are recent or engagement-ranked Instagram posts.",
   "account": "https://www.instagram.com/austinpost/",
   "source_page": "https://austin-post.com/",
   "images": [
@@ -10,7 +10,8 @@
         1000,
         1000
       ],
-      "asset": "cowboys.webp"
+      "asset": "cowboys.webp",
+      "active": false
     },
     {
       "name": "road-show",
@@ -19,7 +20,8 @@
         1200,
         1515
       ],
-      "asset": "road-show.webp"
+      "asset": "road-show.webp",
+      "active": true
     },
     {
       "name": "outerwear-fw26",
@@ -28,7 +30,8 @@
         445,
         594
       ],
-      "asset": "outerwear-fw26.webp"
+      "asset": "outerwear-fw26.webp",
+      "active": false
     },
     {
       "name": "denim-fw26",
@@ -37,7 +40,30 @@
         446,
         594
       ],
-      "asset": "denim-fw26.webp"
+      "asset": "denim-fw26.webp",
+      "active": true
+    },
+    {
+      "name": "paris-post-malone",
+      "asset": "paris-post-malone.webp",
+      "active": true,
+      "source": "https://www.instagram.com/p/DOEqdIuCe4p/",
+      "source_type": "Verified Instagram post image",
+      "account": "austinpost",
+      "post_date": "2025-09-01",
+      "verification": "Account, caption and date verified from original Instagram post metadata; uncropped original image retrieved from the public Instagram embed.",
+      "caption": "Thank you, Paris!"
+    },
+    {
+      "name": "paris-runway",
+      "asset": "paris-runway.webp",
+      "active": true,
+      "source": "https://www.instagram.com/p/DOEqOO9CVaE/",
+      "source_type": "Verified Instagram post image",
+      "account": "austinpost",
+      "post_date": "2025-09-01",
+      "verification": "Account, caption and date verified from original Instagram post metadata; uncropped original image retrieved from the public Instagram embed.",
+      "caption": "At First Light"
     }
   ]
 }
