@@ -114,3 +114,5 @@ body[data-page=home] .portrait-frame img{height:200%;top:calc(-49% - 8px)}
 /* Match the original studio backdrop without changing product colors. */
 body[data-page=home] :is(.hat-copy,.hat-cutout,.denim-inset){background:#e5e5e5}
 body[data-page=home] :is(.hat-cutout,.denim-inset) img{mix-blend-mode:normal}
+/* The opening still and film share identical framing, without a hover zoom. */
+body[data-page=home] .motion-frame.model-image .image-card:is(:hover,:focus-visible) img{transform:none}

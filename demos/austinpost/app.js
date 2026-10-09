@@ -15,11 +15,13 @@ const label=(number,text)=>`<div class="section-label"><span>${number}</span><sp
 const productCaption=p=>`<p class="product-caption">${e(p.title)}<br><span>${e(p.color)}</span></p>`;
 const productPrice=p=>`<p class="price">${priceHTML(p)}</p>`;
 function imageCard(p,index=0,cls='') {
-  const content = `<a class="image-card ${cls}" href="${productURL(p)}" aria-label="Explore ${e(p.title)} in ${e(p.color)}">${photo(p.gallery[index]||p.gallery[0],`${p.title} — ${p.color}`)}<span class="image-link-indicator" aria-hidden="true">↗</span></a>`;
+  const matchedModel=cls.split(' ').includes('model-image')&&p.handle==='rodeo-slim-fit-jeans-lt-indigo'&&index===2;
+  const still=matchedModel?'/assets/motion/highland-model-turn-poster.webp':p.gallery[index]||p.gallery[0];
+  const content = `<a class="image-card ${cls}" href="${productURL(p)}" aria-label="Explore ${e(p.title)} in ${e(p.color)}">${photo(still,`${p.title} — ${p.color}`)}<span class="image-link-indicator" aria-hidden="true">↗</span></a>`;
   const films={
     'feature-image':['sherpa-lined-puffer-jacket-beige',0,'puffer-lifestyle.mp4','Outpost Sherpa Puffer film'],
     'shirt-image':['daybreak-denim-shirt',0,'daybreak-lifestyle.mp4','Daybreak Denim Shirt film'],
-    'model-image':['rodeo-slim-fit-jeans-lt-indigo',2,'highland-model-turn.mp4','Highland Slim Cut model turn'],
+    'model-image':['rodeo-slim-fit-jeans-lt-indigo',2,'highland-model-turn-matched.mp4','Highland Slim Cut model turn'],
     'tee-image':['standard-tee-3',0,'tobacco-tee-lifestyle.mp4','Standard Tee film']
   };
   const film=Object.entries(films).find(([key,[handle,view]])=>cls.split(' ').includes(key)&&p.handle===handle&&index===view)?.[1];
