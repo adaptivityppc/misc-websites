@@ -107,3 +107,5 @@ body[data-page=home] .hat-cutout:is(:hover,:focus-visible) img{transform:transla
 /* Portrait hover films keep the full garment and model in view. */
 .motion-frame:is(.shirt-image,.tee-image,.model-image)>.hover-film{object-fit:contain;background:var(--bone)}
 .motion-frame.model-image>.hover-film{background:#e5e5e5}
+/* Keep keyboard focus beneath the film overlay. */
+.motion-still>.image-card:focus-visible{z-index:1}
