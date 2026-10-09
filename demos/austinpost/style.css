@@ -257,6 +257,7 @@ body[data-page=home] .motion-frame.model-image>.motion-still{position:absolute;i
 .tour-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s}
 .tour-photo a:hover img{transform:scale(1.025)}
 .tour-photo figcaption{font-size:9px;line-height:1.5;color:#736857;margin-top:7px}
+.tour-photo-kind{color:#3d362a;font-weight:600}.tour-photo figcaption a{text-decoration:underline;text-underline-offset:2px}.tour-photo figcaption a:hover{color:var(--red)}
 .tour-photo a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 .tour-map-stamp{font-size:10px;color:#eee7d98c}
 .tour-header-note,.tour-eyebrow{font-size:11px}

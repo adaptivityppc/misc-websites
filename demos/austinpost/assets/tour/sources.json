@@ -5,7 +5,7 @@
     "dataset": "Natural Earth 1:110m countries and states",
     "license": "Public domain",
     "url": "https://www.naturalearthdata.com/about/terms-of-use/",
-    "projection": "Albers equal-area (29.5°, 45.5°, central meridian −96°)"
+    "projection": "Albers equal-area (29.5\u00b0, 45.5\u00b0, central meridian \u221296\u00b0)"
   },
   "dates": {
     "tourAnnouncement": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
@@ -22,8 +22,8 @@
   },
   "photographs": [
     {
-      "date": "2026-04-26",
       "city": "Indio",
+      "date": "2026-04-26",
       "src": "/assets/tour/stagecoach-2026.jpg",
       "width": 720,
       "height": 960,
@@ -33,15 +33,267 @@
       "position": "50% 60%"
     },
     {
-      "date": "2026-06-09",
       "city": "Charlotte",
+      "date": "2026-06-09",
       "src": "/assets/tour/charlotte-2026.jpg",
       "width": 768,
       "height": 512,
       "alt": "Post Malone onstage with flames above Bank of America Stadium in Charlotte, June 9, 2026",
       "credit": "Photo: Adam DeGross / Ticketmaster",
       "source": "https://blog.ticketmaster.com/post-malone-setlist/"
+    },
+    {
+      "city": "Fort Lauderdale",
+      "src": "/assets/tour/cities/fort-lauderdale.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Fort Lauderdale skyline and waterfront",
+      "credit": "Photo: KeanoManu",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Fort_Lauderdale,_Nov-15.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Albuquerque",
+      "src": "/assets/tour/cities/albuquerque.webp",
+      "width": 800,
+      "height": 158,
+      "alt": "San Felipe de Neri Church in Albuquerque Old Town",
+      "credit": "Photo: Svobodat",
+      "source": "https://commons.wikimedia.org/wiki/File:Albuquerque_Old_Town_panorama_01.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    },
+    {
+      "city": "Panama City Beach",
+      "src": "/assets/tour/cities/panama-city-beach.webp",
+      "width": 800,
+      "height": 176,
+      "alt": "Panama City Beach shoreline and the Gulf",
+      "credit": "Photo: Bart Everson",
+      "source": "https://commons.wikimedia.org/wiki/File:Panama_City_Beach_Panorama.jpg",
+      "kind": "city",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/deed.en"
+    },
+    {
+      "city": "Myrtle Beach",
+      "src": "/assets/tour/cities/myrtle-beach.webp",
+      "width": 800,
+      "height": 380,
+      "alt": "Myrtle Beach shoreline and beachfront hotels",
+      "credit": "Photo: Matthewtrudeauphoto",
+      "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_SC.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    },
+    {
+      "city": "Indianapolis",
+      "src": "/assets/tour/cities/indianapolis.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Indianapolis skyline beside the canal",
+      "credit": "Photo: TheWxResearcher",
+      "source": "https://commons.wikimedia.org/wiki/File:Indianapolis_Skyline_and_Canal_2025-10-14.jpg",
+      "kind": "city",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    {
+      "city": "Toronto",
+      "src": "/assets/tour/cities/toronto.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Toronto skyline from across the waterfront",
+      "credit": "Photo: Enoch Leung",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Toronto,_Canada_with_the_CN_Tower.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/deed.en"
+    },
+    {
+      "city": "Wildwood",
+      "src": "/assets/tour/cities/wildwood.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Wildwood boardwalk beside the beach",
+      "credit": "Photo: Dough4872",
+      "source": "https://commons.wikimedia.org/wiki/File:Wildwood_boardwalk_looking_north_at_Montgomery_Avenue.jpeg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "East Hartford",
+      "src": "/assets/tour/cities/east-hartford.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Rentschler Field stadium and spectators during a sporting event, East Hartford",
+      "credit": "Photo: Billcasey905",
+      "source": "https://commons.wikimedia.org/wiki/File:Rentschler_Field_2017.jpg",
+      "kind": "venue",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Cleveland",
+      "src": "/assets/tour/cities/cleveland.webp",
+      "width": 800,
+      "height": 423,
+      "alt": "Cleveland skyline from Lakewood",
+      "credit": "Photo: Erik Drost",
+      "source": "https://commons.wikimedia.org/wiki/File:Cleveland_skyline_from_Lakewood_Park,_January_2026.jpg",
+      "kind": "city",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.en"
+    },
+    {
+      "city": "Milwaukee",
+      "src": "/assets/tour/cities/milwaukee.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Milwaukee skyline along Lake Michigan",
+      "credit": "Photo: Michael Barera",
+      "source": "https://commons.wikimedia.org/wiki/File:Milwaukee_June_2026_06_(city_skyline).jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Nashville",
+      "src": "/assets/tour/cities/nashville.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Nashville skyline across the Cumberland River",
+      "credit": "Photo: TennesseeEditor",
+      "source": "https://commons.wikimedia.org/wiki/File:Nashville_Skyline_during_July_2026.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Columbus",
+      "src": "/assets/tour/cities/columbus.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Columbus skyline beside the Scioto River",
+      "credit": "Photo: Wifikitten",
+      "source": "https://commons.wikimedia.org/wiki/File:Columbus_Ohio_Skyline_in_Evening.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Tampa",
+      "src": "/assets/tour/cities/tampa.webp",
+      "width": 800,
+      "height": 618,
+      "alt": "Tampa waterfront buildings from the Hillsborough River",
+      "credit": "Photo: joiseyshowaa",
+      "source": "https://commons.wikimedia.org/wiki/File:Tampa_Skyline_from_the_River.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/deed.en"
+    },
+    {
+      "city": "Fayetteville",
+      "src": "/assets/tour/cities/fayetteville.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "University of Arkansas campus and Fayetteville skyline",
+      "credit": "Photo: Brandonrush",
+      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Fayetteville_from_Old_Main_001.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    },
+    {
+      "city": "Kansas City",
+      "src": "/assets/tour/cities/kansas-city.webp",
+      "width": 800,
+      "height": 534,
+      "alt": "Kansas City skyline above Union Station at night",
+      "credit": "Photo: CalendarGuy",
+      "source": "https://commons.wikimedia.org/wiki/File:Union_Station_and_Kansas_City_skyline.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Ames",
+      "src": "/assets/tour/cities/ames.webp",
+      "width": 800,
+      "height": 618,
+      "alt": "Main Street in downtown Ames",
+      "credit": "Photo: Tim Kiser",
+      "source": "https://commons.wikimedia.org/wiki/File:Ames_Iowa_Main_Street.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/deed.en"
+    },
+    {
+      "city": "Missoula",
+      "src": "/assets/tour/cities/missoula.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Downtown Missoula streets and buildings",
+      "credit": "Photo: Missoulian",
+      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Missoula_center.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    },
+    {
+      "city": "Edmonton",
+      "src": "/assets/tour/cities/edmonton.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Edmonton skyline illuminated at night",
+      "credit": "Photo: Darren Kirby",
+      "source": "https://commons.wikimedia.org/wiki/File:Edmonton_Skyline_from_South_Side.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    },
+    {
+      "city": "Salt Lake City",
+      "src": "/assets/tour/cities/salt-lake-city.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Salt Lake City and surrounding mountains from Ensign Peak",
+      "credit": "Photo: Iansmh98",
+      "source": "https://commons.wikimedia.org/wiki/File:Salt_Lake_City_skyline_(2020)_from_Ensign_Peak.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    },
+    {
+      "city": "Dieppe",
+      "src": "/assets/tour/cities/dieppe.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Aerial view of Dieppe, New Brunswick",
+      "credit": "Photo: Quintin Soloviev",
+      "source": "https://commons.wikimedia.org/wiki/File:Dieppe,_New_Brunswick.jpg",
+      "kind": "city",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.en"
+    },
+    {
+      "city": "Austin",
+      "src": "/assets/tour/cities/austin.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Aerial view of Austin skyline and Lady Bird Lake",
+      "credit": "Photo: Quintin Soloviev",
+      "source": "https://commons.wikimedia.org/wiki/File:Austin,_TX_skyline_2026.jpg",
+      "kind": "city",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.en"
     }
   ],
-  "photographPolicy": "Show-specific photographs only. Stops without a verified photograph show concert details; upcoming performances have no historical photograph."
+  "photographPolicy": "Indio and Charlotte use verified photographs from those concerts. Other stops use credited city scenery or a clearly labelled venue view; these are illustrative location photographs, not images of that concert. Upcoming Austin uses a city view. Licensed location images are resized and converted to WebP, then cropped to fit the display; each retains its source, author and original license."
 }

@@ -1,5 +1,5 @@
 import {escapeHTML as e} from './store.js';
-import {stops, tourMeta} from './tour-data.js?v=tour-polish-1';
+import {stops, tourMeta} from './tour-data.js?v=tour-city-photos-1';
 
 const HOLD=2300, FLIGHT=1900;
 const shortDate=date=>new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
@@ -72,7 +72,9 @@ const groups=groupStops(stops);
 
 export function concertPhotoMarkup(stop){
   const photo=stop.photo;if(!photo)return '';
-  return `<a href="${e(photo.source)}" target="_blank" rel="noopener noreferrer" aria-label="View the original concert photo from ${e(stop.city)}"><img src="${e(photo.src)}" width="${photo.width}" height="${photo.height}" alt="${e(photo.alt)}" style="object-position:${e(photo.position||'center')}" decoding="async"></a><figcaption>${e(photo.credit)} <span aria-hidden="true">↗</span></figcaption>`;
+  const label=photo.kind==='city'?'City view':photo.kind==='venue'?'Venue view':'Concert photo';
+  const license=photo.license?`<br><a href="${e(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${e(photo.license)}</a> · Resized; cropped for display`:'';
+  return `<a href="${e(photo.source)}" target="_blank" rel="noopener noreferrer" aria-label="${e(label)}: view the original photo from ${e(stop.city)}"><img src="${e(photo.src)}" width="${photo.width}" height="${photo.height}" alt="${e(photo.alt)}" style="object-position:${e(photo.position||'center')}" decoding="async"></a><figcaption><span class="tour-photo-kind">${e(label)}</span> · <a href="${e(photo.source)}" target="_blank" rel="noopener noreferrer">${e(photo.credit)} <span aria-hidden="true">↗</span></a>${license}</figcaption>`;
 }
 
 export function renderTour(now=new Date()){
@@ -82,7 +84,7 @@ export function renderTour(now=new Date()){
       <div class="tour-stage-layout">
         <div class="tour-map-window" tabindex="0" aria-label="Concert map. Select a dot to pause and explore a show. On smaller screens, scroll sideways to explore the map.">
           <div class="tour-map-canvas">
-            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-polish-1" width="1000" height="620" alt="" loading="lazy" decoding="async">
+            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-city-photos-1" width="1000" height="620" alt="" loading="lazy" decoding="async">
             <svg class="tour-route-map" viewBox="0 0 1000 620" aria-hidden="true">
               <g class="tour-planned-routes">${positions.slice(1).map((point,i)=>`<path d="${flightPath(positions[i],point)}" class="${showStatus(stops[i+1],now)==='past'?'':'is-future'}"/>`).join('')}</g>
               <g class="tour-travelled-routes">${positions.slice(1).map((point,i)=>`<path data-tour-leg="${i}" d="${flightPath(positions[i],point)}" pathLength="1"/>`).join('')}</g>

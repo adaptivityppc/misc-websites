@@ -11,7 +11,18 @@ export const stops = [
     "venue": "Tortuga Music Festival",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/fort-lauderdale.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Fort Lauderdale skyline and waterfront",
+      "credit": "Photo: KeanoManu",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Fort_Lauderdale,_Nov-15.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-04-26",
@@ -46,7 +57,18 @@ export const stops = [
     "venue": "Boots in the Park",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Denver"
+    "timeZone": "America/Denver",
+    "photo": {
+      "src": "/assets/tour/cities/albuquerque.webp",
+      "width": 800,
+      "height": 158,
+      "alt": "San Felipe de Neri Church in Albuquerque Old Town",
+      "credit": "Photo: Svobodat",
+      "source": "https://commons.wikimedia.org/wiki/File:Albuquerque_Old_Town_panorama_01.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
   },
   {
     "date": "2026-05-31",
@@ -59,7 +81,18 @@ export const stops = [
     "venue": "Gulf Coast Jam",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/panama-city-beach.webp",
+      "width": 800,
+      "height": 176,
+      "alt": "Panama City Beach shoreline and the Gulf",
+      "credit": "Photo: Bart Everson",
+      "source": "https://commons.wikimedia.org/wiki/File:Panama_City_Beach_Panorama.jpg",
+      "kind": "city",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/deed.en"
+    }
   },
   {
     "date": "2026-06-07",
@@ -72,7 +105,18 @@ export const stops = [
     "venue": "Carolina Country Music Fest",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/myrtle-beach.webp",
+      "width": 800,
+      "height": 380,
+      "alt": "Myrtle Beach shoreline and beachfront hotels",
+      "credit": "Photo: Matthewtrudeauphoto",
+      "source": "https://commons.wikimedia.org/wiki/File:Myrtle_Beach_SC.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
   },
   {
     "date": "2026-06-09",
@@ -106,7 +150,18 @@ export const stops = [
     "venue": "Lucas Oil Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/indianapolis.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Indianapolis skyline beside the canal",
+      "credit": "Photo: TheWxResearcher",
+      "source": "https://commons.wikimedia.org/wiki/File:Indianapolis_Skyline_and_Canal_2025-10-14.jpg",
+      "kind": "city",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    }
   },
   {
     "date": "2026-06-16",
@@ -119,7 +174,18 @@ export const stops = [
     "venue": "Rogers Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Toronto"
+    "timeZone": "America/Toronto",
+    "photo": {
+      "src": "/assets/tour/cities/toronto.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Toronto skyline from across the waterfront",
+      "credit": "Photo: Enoch Leung",
+      "source": "https://commons.wikimedia.org/wiki/File:Skyline_of_Toronto,_Canada_with_the_CN_Tower.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/deed.en"
+    }
   },
   {
     "date": "2026-06-20",
@@ -132,7 +198,18 @@ export const stops = [
     "venue": "Barefoot Country Music Fest",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/wildwood.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Wildwood boardwalk beside the beach",
+      "credit": "Photo: Dough4872",
+      "source": "https://commons.wikimedia.org/wiki/File:Wildwood_boardwalk_looking_north_at_Montgomery_Avenue.jpeg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-06-22",
@@ -145,7 +222,18 @@ export const stops = [
     "venue": "Pratt & Whitney Stadium at Rentschler Field",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/east-hartford.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Rentschler Field stadium and spectators during a sporting event, East Hartford",
+      "credit": "Photo: Billcasey905",
+      "source": "https://commons.wikimedia.org/wiki/File:Rentschler_Field_2017.jpg",
+      "kind": "venue",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-06-25",
@@ -158,7 +246,18 @@ export const stops = [
     "venue": "Huntington Bank Field",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/cleveland.webp",
+      "width": 800,
+      "height": 423,
+      "alt": "Cleveland skyline from Lakewood",
+      "credit": "Photo: Erik Drost",
+      "source": "https://commons.wikimedia.org/wiki/File:Cleveland_skyline_from_Lakewood_Park,_January_2026.jpg",
+      "kind": "city",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.en"
+    }
   },
   {
     "date": "2026-06-27",
@@ -171,7 +270,18 @@ export const stops = [
     "venue": "Summerfest",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/milwaukee.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Milwaukee skyline along Lake Michigan",
+      "credit": "Photo: Michael Barera",
+      "source": "https://commons.wikimedia.org/wiki/File:Milwaukee_June_2026_06_(city_skyline).jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-06-30",
@@ -184,7 +294,18 @@ export const stops = [
     "venue": "Nissan Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/nashville.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Nashville skyline across the Cumberland River",
+      "credit": "Photo: TennesseeEditor",
+      "source": "https://commons.wikimedia.org/wiki/File:Nashville_Skyline_during_July_2026.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-07-02",
@@ -194,10 +315,21 @@ export const stops = [
     "country": "USA",
     "lat": 39.9612,
     "lon": -82.9988,
-    "venue": "Historic Crew Stadium · Salute 250",
+    "venue": "Historic Crew Stadium \u00b7 Salute 250",
     "kind": "special",
     "source": "https://easyday.org/salute250/",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/cities/columbus.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Columbus skyline beside the Scioto River",
+      "credit": "Photo: Wifikitten",
+      "source": "https://commons.wikimedia.org/wiki/File:Columbus_Ohio_Skyline_in_Evening.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-07-08",
@@ -211,7 +343,18 @@ export const stops = [
     "kind": "stadium",
     "source": "https://www.postmalone.com/gig/wednesday-july-8th-2026-raymond-james-stadium/",
     "timeZone": "America/New_York",
-    "note": "Rescheduled from May 29."
+    "note": "Rescheduled from May 29.",
+    "photo": {
+      "src": "/assets/tour/cities/tampa.webp",
+      "width": 800,
+      "height": 618,
+      "alt": "Tampa waterfront buildings from the Hillsborough River",
+      "credit": "Photo: joiseyshowaa",
+      "source": "https://commons.wikimedia.org/wiki/File:Tampa_Skyline_from_the_River.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/deed.en"
+    }
   },
   {
     "date": "2026-07-11",
@@ -224,7 +367,18 @@ export const stops = [
     "venue": "Donald W. Reynolds Razorback Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/fayetteville.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "University of Arkansas campus and Fayetteville skyline",
+      "credit": "Photo: Brandonrush",
+      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Fayetteville_from_Old_Main_001.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
   },
   {
     "date": "2026-07-15",
@@ -237,7 +391,18 @@ export const stops = [
     "venue": "Kauffman Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/kansas-city.webp",
+      "width": 800,
+      "height": 534,
+      "alt": "Kansas City skyline above Union Station at night",
+      "credit": "Photo: CalendarGuy",
+      "source": "https://commons.wikimedia.org/wiki/File:Union_Station_and_Kansas_City_skyline.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-07-17",
@@ -250,7 +415,18 @@ export const stops = [
     "venue": "Jack Trice Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/ames.webp",
+      "width": 800,
+      "height": 618,
+      "alt": "Main Street in downtown Ames",
+      "credit": "Photo: Tim Kiser",
+      "source": "https://commons.wikimedia.org/wiki/File:Ames_Iowa_Main_Street.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/deed.en"
+    }
   },
   {
     "date": "2026-07-21",
@@ -260,10 +436,21 @@ export const stops = [
     "country": "USA",
     "lat": 46.8721,
     "lon": -113.994,
-    "venue": "Washington–Grizzly Stadium",
+    "venue": "Washington\u2013Grizzly Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Denver"
+    "timeZone": "America/Denver",
+    "photo": {
+      "src": "/assets/tour/cities/missoula.webp",
+      "width": 800,
+      "height": 600,
+      "alt": "Downtown Missoula streets and buildings",
+      "credit": "Photo: Missoulian",
+      "source": "https://commons.wikimedia.org/wiki/File:Downtown_Missoula_center.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
   },
   {
     "date": "2026-07-24",
@@ -276,7 +463,18 @@ export const stops = [
     "venue": "Commonwealth Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Edmonton"
+    "timeZone": "America/Edmonton",
+    "photo": {
+      "src": "/assets/tour/cities/edmonton.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Edmonton skyline illuminated at night",
+      "credit": "Photo: Darren Kirby",
+      "source": "https://commons.wikimedia.org/wiki/File:Edmonton_Skyline_from_South_Side.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
   },
   {
     "date": "2026-07-25",
@@ -289,7 +487,18 @@ export const stops = [
     "venue": "Commonwealth Stadium",
     "kind": "stadium",
     "source": "https://www.postmalone.com/gig/saturday-july-25th-2026-commonwealth-stadium/",
-    "timeZone": "America/Edmonton"
+    "timeZone": "America/Edmonton",
+    "photo": {
+      "src": "/assets/tour/cities/edmonton.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Edmonton skyline illuminated at night",
+      "credit": "Photo: Darren Kirby",
+      "source": "https://commons.wikimedia.org/wiki/File:Edmonton_Skyline_from_South_Side.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
   },
   {
     "date": "2026-07-28",
@@ -299,10 +508,21 @@ export const stops = [
     "country": "USA",
     "lat": 40.7608,
     "lon": -111.891,
-    "venue": "Rice–Eccles Stadium",
+    "venue": "Rice\u2013Eccles Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Denver"
+    "timeZone": "America/Denver",
+    "photo": {
+      "src": "/assets/tour/cities/salt-lake-city.webp",
+      "width": 800,
+      "height": 450,
+      "alt": "Salt Lake City and surrounding mountains from Ensign Peak",
+      "credit": "Photo: Iansmh98",
+      "source": "https://commons.wikimedia.org/wiki/File:Salt_Lake_City_skyline_(2020)_from_Ensign_Peak.jpg",
+      "kind": "city",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+    }
   },
   {
     "date": "2026-08-29",
@@ -312,10 +532,21 @@ export const stops = [
     "country": "Canada",
     "lat": 46.0789,
     "lon": -64.748,
-    "venue": "MusiqArt Site · YQM Country Fest",
+    "venue": "MusiqArt Site \u00b7 YQM Country Fest",
     "kind": "festival",
     "source": "https://www.setlist.fm/setlist/post-malone/2026/musiqart-site-dieppe-nb-canada-7341fa99.html",
-    "timeZone": "America/Moncton"
+    "timeZone": "America/Moncton",
+    "photo": {
+      "src": "/assets/tour/cities/dieppe.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Aerial view of Dieppe, New Brunswick",
+      "credit": "Photo: Quintin Soloviev",
+      "source": "https://commons.wikimedia.org/wiki/File:Dieppe,_New_Brunswick.jpg",
+      "kind": "city",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.en"
+    }
   },
   {
     "date": "2026-10-24",
@@ -325,9 +556,20 @@ export const stops = [
     "country": "USA",
     "lat": 30.2672,
     "lon": -97.7431,
-    "venue": "Circuit of the Americas · Formula 1 Grand Prix Weekend",
+    "venue": "Circuit of the Americas \u00b7 Formula 1 Grand Prix Weekend",
     "kind": "special",
     "source": "https://www.postmalone.com/",
-    "timeZone": "America/Chicago"
+    "timeZone": "America/Chicago",
+    "photo": {
+      "src": "/assets/tour/cities/austin.webp",
+      "width": 800,
+      "height": 533,
+      "alt": "Aerial view of Austin skyline and Lady Bird Lake",
+      "credit": "Photo: Quintin Soloviev",
+      "source": "https://commons.wikimedia.org/wiki/File:Austin,_TX_skyline_2026.jpg",
+      "kind": "city",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/deed.en"
+    }
   }
 ];
