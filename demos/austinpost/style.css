@@ -103,3 +103,7 @@ body[data-page=home] .hero-inset:is(:hover,:focus-visible):before{transform:tran
 /* Keep the full cap centered during rollovers, including keyboard focus. */
 body[data-page=home] .hat-cutout:is(:hover,:focus-visible) img{transform:translate(-50%,-61%) scale(1.025)}
 @media(prefers-reduced-motion:reduce){body[data-page=home] .hat-cutout:is(:hover,:focus-visible) img{transform:translate(-50%,-61%)}}
+
+/* Portrait hover films keep the full garment and model in view. */
+.motion-frame:is(.shirt-image,.tee-image,.model-image)>.hover-film{object-fit:contain;background:var(--bone)}
+.motion-frame.model-image>.hover-film{background:#e5e5e5}

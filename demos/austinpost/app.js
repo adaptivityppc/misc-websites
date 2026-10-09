@@ -14,7 +14,17 @@ const button=(href,label,cls='')=>`<a class="button ${cls}" href="${href}"><span
 const label=(number,text)=>`<div class="section-label"><span>${number}</span><span>${text}</span></div>`;
 const productCaption=p=>`<p class="product-caption">${e(p.title)}<br><span>${e(p.color)}</span></p>`;
 const productPrice=p=>`<p class="price">${priceHTML(p)}</p>`;
-function imageCard(p,index=0,cls='') {const content = `<a class="image-card ${cls}" href="${productURL(p)}" aria-label="Explore ${e(p.title)} in ${e(p.color)}">${photo(p.gallery[index]||p.gallery[0],`${p.title} — ${p.color}`)}<span class="image-link-indicator" aria-hidden="true">↗</span></a>`;return p.handle==='sherpa-lined-puffer-jacket-beige'&&index===0&&cls.includes('feature-image')?motionMarkup(content,'/assets/motion/puffer-lifestyle.mp4','Outpost Sherpa Puffer film',cls):content;}
+function imageCard(p,index=0,cls='') {
+  const content = `<a class="image-card ${cls}" href="${productURL(p)}" aria-label="Explore ${e(p.title)} in ${e(p.color)}">${photo(p.gallery[index]||p.gallery[0],`${p.title} — ${p.color}`)}<span class="image-link-indicator" aria-hidden="true">↗</span></a>`;
+  const films={
+    'feature-image':['sherpa-lined-puffer-jacket-beige',0,'puffer-lifestyle.mp4','Outpost Sherpa Puffer film'],
+    'shirt-image':['daybreak-denim-shirt',0,'daybreak-lifestyle.mp4','Daybreak Denim Shirt film'],
+    'model-image':['rodeo-slim-fit-jeans-lt-indigo',2,'highland-model-turn.mp4','Highland Slim Cut model turn'],
+    'tee-image':['standard-tee-3',0,'tobacco-tee-lifestyle.mp4','Standard Tee film']
+  };
+  const film=Object.entries(films).find(([key,[handle,view]])=>cls.split(' ').includes(key)&&p.handle===handle&&index===view)?.[1];
+  return film?motionMarkup(content,`/assets/motion/${film[2]}`,film[3],cls):content;
+}
 
 function renderHome(){
   const tee=find('standard-tee-3'),puffer=find('sherpa-lined-puffer-jacket-beige'),jeans=find('rodeo-slim-fit-jeans-lt-indigo'),cap=find('ap-snap-back-2'),shirt=find('daybreak-denim-shirt');
