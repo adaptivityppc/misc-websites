@@ -1,5 +1,5 @@
 import {escapeHTML as e} from './store.js';
-import {stops, tourMeta} from './tour-data.js?v=tour-mobile-1';
+import {stops, tourMeta} from './tour-data.js?v=tour-mobile-2';
 
 const HOLD=2300, FLIGHT=1900;
 const shortDate=date=>new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
@@ -89,7 +89,7 @@ export function renderTour(now=new Date()){
       <div class="tour-stage-layout">
         <div class="tour-map-window" tabindex="0" aria-label="Concert map. Pause the journey to see the full map, then select a dot to explore a show.">
           <div class="tour-map-canvas">
-            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-mobile-1" width="1000" height="620" alt="" loading="lazy" decoding="async">
+            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-mobile-2" width="1000" height="620" alt="" loading="lazy" decoding="async">
             <svg class="tour-route-map" viewBox="0 0 1000 620" aria-hidden="true">
               <g class="tour-planned-routes">${positions.slice(1).map((point,i)=>`<path d="${flightPath(positions[i],point)}" class="${showStatus(stops[i+1],now)==='past'?'':'is-future'}"/>`).join('')}</g>
               <g class="tour-travelled-routes">${positions.slice(1).map((point,i)=>`<path data-tour-leg="${i}" d="${flightPath(positions[i],point)}" pathLength="1"/>`).join('')}</g>
