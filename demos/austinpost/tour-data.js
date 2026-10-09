@@ -24,7 +24,16 @@ export const stops = [
     "venue": "Stagecoach Music Festival",
     "kind": "festival",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/Los_Angeles"
+    "timeZone": "America/Los_Angeles",
+    "photo": {
+      "src": "/assets/tour/stagecoach-2026.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Post Malone with fans at Stagecoach in Indio, April 26, 2026",
+      "credit": "Photo: Adam DeGross / @postmalone",
+      "source": "https://www.instagram.com/p/DXsQ3HKks05/",
+      "position": "50% 60%"
+    }
   },
   {
     "date": "2026-05-16",
@@ -76,7 +85,15 @@ export const stops = [
     "venue": "Bank of America Stadium",
     "kind": "stadium",
     "source": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
-    "timeZone": "America/New_York"
+    "timeZone": "America/New_York",
+    "photo": {
+      "src": "/assets/tour/charlotte-2026.jpg",
+      "width": 768,
+      "height": 512,
+      "alt": "Post Malone onstage with flames above Bank of America Stadium in Charlotte, June 9, 2026",
+      "credit": "Photo: Adam DeGross / Ticketmaster",
+      "source": "https://blog.ticketmaster.com/post-malone-setlist/"
+    }
   },
   {
     "date": "2026-06-12",

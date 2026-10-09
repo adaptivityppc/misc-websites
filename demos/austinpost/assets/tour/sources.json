@@ -19,5 +19,29 @@
     "excluded": "Cancelled El Paso, Waco, Baton Rouge, Birmingham and Oxford dates; postponed Asia and Oceania shows without replacement dates.",
     "cancellationSource": "https://www.9news.com/article/news/nation-world/post-malone-cancels-tour-dates-postpone-2026-tour/507-7ca07b03-06ab-415c-b57c-7fab805f4ab1",
     "postponementSource": "https://www.news.com.au/entertainment/music/tours/post-malone-postpones-entire-australian-tour-just-weeks-before-first-show/news-story/4da394acefb6ac63c98e58d147fd9949"
-  }
+  },
+  "photographs": [
+    {
+      "date": "2026-04-26",
+      "city": "Indio",
+      "src": "/assets/tour/stagecoach-2026.jpg",
+      "width": 720,
+      "height": 960,
+      "alt": "Post Malone with fans at Stagecoach in Indio, April 26, 2026",
+      "credit": "Photo: Adam DeGross / @postmalone",
+      "source": "https://www.instagram.com/p/DXsQ3HKks05/",
+      "position": "50% 60%"
+    },
+    {
+      "date": "2026-06-09",
+      "city": "Charlotte",
+      "src": "/assets/tour/charlotte-2026.jpg",
+      "width": 768,
+      "height": 512,
+      "alt": "Post Malone onstage with flames above Bank of America Stadium in Charlotte, June 9, 2026",
+      "credit": "Photo: Adam DeGross / Ticketmaster",
+      "source": "https://blog.ticketmaster.com/post-malone-setlist/"
+    }
+  ],
+  "photographPolicy": "Show-specific photographs only. Stops without a verified photograph show concert details; upcoming performances have no historical photograph."
 }

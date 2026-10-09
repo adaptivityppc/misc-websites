@@ -1,5 +1,5 @@
 import {escapeHTML as e} from './store.js';
-import {stops, tourMeta} from './tour-data.js?v=tour-map-1';
+import {stops, tourMeta} from './tour-data.js?v=tour-polish-1';
 
 const HOLD=2300, FLIGHT=1900;
 const shortDate=date=>new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
@@ -31,6 +31,7 @@ export function flightPoint(a,b,t){
   return {x:u*u*a.x+2*u*t*c.x+t*t*b.x,y:u*u*a.y+2*u*t*c.y+t*t*b.y,
     angle:Math.atan2(2*u*(c.y-a.y)+2*t*(b.y-c.y),2*u*(c.x-a.x)+2*t*(b.x-c.x))*180/Math.PI};
 }
+export function travelProgress(t){t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);}
 export function groupStops(items){
   const groups=new Map();items.forEach((stop,index)=>{const key=`${stop.city}|${stop.region}|${stop.country}`;
     if(!groups.has(key))groups.set(key,{stop,indices:[]});groups.get(key).indices.push(index);});
@@ -69,6 +70,11 @@ const pauseIcon='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3h3v14H
 const positions=stops.map(project);
 const groups=groupStops(stops);
 
+export function concertPhotoMarkup(stop){
+  const photo=stop.photo;if(!photo)return '';
+  return `<a href="${e(photo.source)}" target="_blank" rel="noopener noreferrer" aria-label="View the original concert photo from ${e(stop.city)}"><img src="${e(photo.src)}" width="${photo.width}" height="${photo.height}" alt="${e(photo.alt)}" style="object-position:${e(photo.position||'center')}" decoding="async"></a><figcaption>${e(photo.credit)} <span aria-hidden="true">↗</span></figcaption>`;
+}
+
 export function renderTour(now=new Date()){
   return `<section id="on-the-road" class="tour-section" aria-labelledby="tour-title">
     <header class="tour-header"><div class="reveal"><span class="tour-eyebrow">Post Malone / The 2026 chapter</span><h2 id="tour-title" class="display">ON THE ROAD.</h2><p>One show. One city. Another chapter.</p></div><div class="tour-header-note"><span>THE TOUR JOURNAL</span><span>North America · 2026</span></div></header>
@@ -76,7 +82,7 @@ export function renderTour(now=new Date()){
       <div class="tour-stage-layout">
         <div class="tour-map-window" tabindex="0" aria-label="Concert map. Select a dot to pause and explore a show. On smaller screens, scroll sideways to explore the map.">
           <div class="tour-map-canvas">
-            <img class="tour-basemap" src="/assets/tour/north-america.svg" width="1000" height="620" alt="" loading="lazy" decoding="async">
+            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-polish-1" width="1000" height="620" alt="" loading="lazy" decoding="async">
             <svg class="tour-route-map" viewBox="0 0 1000 620" aria-hidden="true">
               <g class="tour-planned-routes">${positions.slice(1).map((point,i)=>`<path d="${flightPath(positions[i],point)}" class="${showStatus(stops[i+1],now)==='past'?'':'is-future'}"/>`).join('')}</g>
               <g class="tour-travelled-routes">${positions.slice(1).map((point,i)=>`<path data-tour-leg="${i}" d="${flightPath(positions[i],point)}" pathLength="1"/>`).join('')}</g>
@@ -89,7 +95,7 @@ export function renderTour(now=new Date()){
         </div>
         <aside class="tour-stop-card" aria-label="Selected concert">
           <div class="tour-card-top"><span data-tour-counter>01 / ${stops.length}</span><span class="tour-status" data-tour-status>Past show</span></div>
-          <div class="tour-card-main"><p class="tour-flight-status" data-tour-flight>At the first stop</p><h3 data-tour-city>${e(stops[0].city)}</h3><p class="tour-region" data-tour-region>${e(stops[0].region)} / ${e(stops[0].country)}</p><div class="tour-card-rule"></div><time data-tour-date datetime="${stops[0].date}">${longDate(stops[0].date)}</time><p class="tour-venue" data-tour-venue>${e(stops[0].venue)}</p><p class="tour-show-note" data-tour-note></p><div class="tour-other-dates" data-tour-other-dates></div></div>
+          <div class="tour-card-main"><p class="tour-flight-status" data-tour-flight>At the first stop</p><h3 data-tour-city>${e(stops[0].city)}</h3><p class="tour-region" data-tour-region>${e(stops[0].region)} / ${e(stops[0].country)}</p><figure class="tour-photo" data-tour-photo hidden></figure><div class="tour-card-rule"></div><time data-tour-date datetime="${stops[0].date}">${longDate(stops[0].date)}</time><p class="tour-venue" data-tour-venue>${e(stops[0].venue)}</p><p class="tour-show-note" data-tour-note></p><div class="tour-other-dates" data-tour-other-dates></div></div>
           <a data-tour-source href="${e(stops[0].source)}" target="_blank" rel="noopener noreferrer">Show details <span aria-hidden="true">↗</span></a>
         </aside>
       </div>
@@ -114,7 +120,7 @@ export function setupTour(root=document){
   const player=createTourPlayer(stops.length,reduced.matches),q=selector=>host.querySelector(selector);
   const pins=[...host.querySelectorAll('[data-tour-pin]')],timeline=[...host.querySelectorAll('[data-tour-select]')];
   const legs=[...host.querySelectorAll('[data-tour-leg]')],plane=q('[data-tour-plane]'),label=q('[data-tour-label]');
-  let frame=0,lastTime=null,activeIndex=-1,lastPhase='',lastPlaying=null,inView=false,visited=false,disposed=false;
+  let frame=0,lastTime=null,activeIndex=-1,lastPhase='',lastPlaying=null,inView=false,visited=false,disposed=false,cardAnimation=null;
   const listeners=[];
   const on=(target,event,fn)=>{target.addEventListener(event,fn);listeners.push(()=>target.removeEventListener(event,fn));};
   function announce(){const stop=stops[player.state.index];q('[data-tour-announcement]').textContent=`${stop.city}, ${stop.region}. ${longDate(stop.date)}. ${stop.venue}.`;
@@ -126,7 +132,10 @@ export function setupTour(root=document){
       const status=showStatus(stop);q('[data-tour-status]').textContent=status==='upcoming'?'Upcoming':status==='today'?'Today':'Past show';q('[data-tour-status]').classList.toggle('is-future',status!=='past');
       q('[data-tour-city]').textContent=stop.city;q('[data-tour-region]').textContent=`${stop.region} / ${stop.country}`;
       q('[data-tour-date]').textContent=longDate(stop.date);q('[data-tour-date]').setAttribute('datetime',stop.date);
+      const photo=q('[data-tour-photo]');photo.hidden=!stop.photo;photo.innerHTML=concertPhotoMarkup(stop);
       q('[data-tour-venue]').textContent=stop.venue;q('[data-tour-note]').textContent=stop.note||'';q('[data-tour-source]').href=stop.source;
+      cardAnimation?.cancel();
+      if(!reduced.matches)cardAnimation=q('.tour-card-main').animate?.([{opacity:.55,transform:'translateY(5px)'},{opacity:1,transform:'translateY(0)'}],{duration:360,easing:'cubic-bezier(.2,.7,.2,1)'});
       const group=groups.find(g=>g.indices.includes(s.index));
       q('[data-tour-other-dates]').innerHTML=group.indices.length>1?`<span>Two nights in ${e(stop.city)}</span>${group.indices.map(i=>`<button type="button" data-tour-select="${i}" aria-pressed="${i===s.index}">${shortDate(stops[i].date)}</button>`).join('')}`:'';
       pins.forEach(pin=>{const selected=Number(pin.dataset.tourPin)===group.indices[0];pin.classList.toggle('is-selected',selected);pin.setAttribute('aria-pressed',String(selected));});
@@ -142,8 +151,9 @@ export function setupTour(root=document){
       q('[data-tour-play]').innerHTML=s.playing?`${pauseIcon}<span>Pause the journey</span>`:`${playIcon}<span>${s.phase==='done'?'Replay the journey':'Play the journey'}</span>`;
       q('[data-tour-play]').setAttribute('aria-label',s.playing?'Pause tour animation':'Play tour animation');
     }
-    legs.forEach((leg,i)=>{leg.style.strokeDashoffset=String(i<s.index?0:i===s.index&&s.phase==='flight'?1-s.progress:1);});
-    const p=s.phase==='flight'?flightPoint(positions[s.index],positions[s.index+1],s.progress):{...positions[s.index],angle:0};
+    const progress=travelProgress(s.progress);
+    legs.forEach((leg,i)=>{leg.classList.toggle('is-recent',i===s.index-1);leg.classList.toggle('is-active',i===s.index&&s.phase==='flight');leg.style.strokeDashoffset=String(i<s.index?0:i===s.index&&s.phase==='flight'?1-progress:1);});
+    const p=s.phase==='flight'?flightPoint(positions[s.index],positions[s.index+1],progress):{...positions[s.index],angle:0};
     plane.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle})`);
   }
   function pause(){player.pause();cancelAnimationFrame(frame);frame=0;lastTime=null;paint();}
@@ -170,5 +180,5 @@ export function setupTour(root=document){
   let observer;
   if('IntersectionObserver' in window){observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(!inView)pause();else if(!visited&&!reduced.matches)play();},{threshold:.25});observer.observe(q('.tour-map-window'));}
   paint();
-  cleanup=()=>{disposed=true;player.pause();cancelAnimationFrame(frame);observer?.disconnect();listeners.forEach(off=>off());};
+  cleanup=()=>{disposed=true;player.pause();cancelAnimationFrame(frame);cardAnimation?.cancel();observer?.disconnect();listeners.forEach(off=>off());};
 }
