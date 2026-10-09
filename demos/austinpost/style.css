@@ -116,3 +116,7 @@ body[data-page=home] :is(.hat-copy,.hat-cutout,.denim-inset){background:#e5e5e5}
 body[data-page=home] :is(.hat-cutout,.denim-inset) img{mix-blend-mode:normal}
 /* The opening still and film share identical framing, without a hover zoom. */
 body[data-page=home] .motion-frame.model-image .image-card:is(:hover,:focus-visible) img{transform:none}
+
+/* Preserve the original model panel dimensions as the film begins. */
+body[data-page=home] .motion-frame.model-image>.motion-still{position:absolute;inset:0}
+@media(min-width:761px){body[data-page=home] .motion-frame.model-image{aspect-ratio:3/4}}
