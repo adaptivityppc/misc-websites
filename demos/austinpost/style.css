@@ -104,8 +104,10 @@ body[data-page=home] .hero-inset:is(:hover,:focus-visible):before{transform:tran
 body[data-page=home] .hat-cutout:is(:hover,:focus-visible) img{transform:translate(-50%,-61%) scale(1.025)}
 @media(prefers-reduced-motion:reduce){body[data-page=home] .hat-cutout:is(:hover,:focus-visible) img{transform:translate(-50%,-61%)}}
 
-/* Portrait hover films keep the full garment and model in view. */
-.motion-frame:is(.shirt-image,.tee-image,.model-image)>.hover-film{object-fit:contain;background:var(--bone)}
+/* Fill each product panel like the existing puffer film, without side gaps. */
+.motion-frame:is(.shirt-image,.tee-image,.model-image)>.hover-film{object-fit:cover;object-position:center;background:var(--bone)}
 .motion-frame.model-image>.hover-film{background:#e5e5e5}
 /* Keep keyboard focus beneath the film overlay. */
 .motion-still>.image-card:focus-visible{z-index:1}
+/* Crop the portrait's printed border with room for the gentle scroll drift. */
+body[data-page=home] .portrait-frame img{height:200%;top:calc(-49% - 8px)}

@@ -31,7 +31,7 @@ function renderHome(){
   return `<section class="hero charcoal" aria-labelledby="hero-title">
     <div class="hero-copy"><span class="eyebrow">Season two — SS26</span><h1 id="hero-title" class="display"><span>FULL</span><span>THROTTLE</span></h1><p>Austin Post returns with a new chapter.</p>${button('/collections/full-throttle/','View collection')}
       <a class="hero-inset" href="/collections/full-throttle/" aria-label="Explore Full Throttle">${photo('/assets/full-throttle.jpg','Full Throttle campaign: green velour, cowboy boots, and a yellow convertible','',true)}<span>Summer 2026 ${arrow}</span></a>
-      <div class="hero-index"><span>SS26</span><a href="#outerwear">Scroll to explore ↓</a></div>
+      <div class="hero-index"><span>SS26</span></div>
     </div><div class="portrait-frame">${photo('/assets/post-portrait.jpg','Post Malone — Austin Post Full Throttle campaign','',true)}<span class="portrait-caption">Austin Post / Post Malone</span></div>
   </section>
   <a class="brand-band" href="/shop/"><span class="display">AUSTIN POST</span><span class="band-cta">Explore the collection ${arrow}</span></a>
