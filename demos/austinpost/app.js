@@ -1,5 +1,6 @@
 import {categories,escapeHTML as e,money,filterProducts,priceHTML,addToBag,bagTotal} from './store.js';
 import {motionMarkup,setupMotion,disposeMotion,pauseMotion,setMotionEnabled} from './motion.js';
+import {renderTour,setupTour,disposeTour} from './tour.js?v=tour-map-1';
 
 let products=[], catalog={}, currentProduct=null, galleryIndex=0, selectedVariant=null;
 let bag=[];
@@ -57,7 +58,7 @@ function renderHome(){
   <section class="denim-feature editorial-grid" aria-labelledby="denim-title">${imageCard(jeans,2,'model-image')}<div class="editorial-copy charcoal denim-dark"><div class="reveal"><h2 id="denim-title" class="display">DENIM</h2>${productCaption(jeans)}${productPrice(jeans)}${button(productURL(jeans),'View product')}<a class="quiet-link" href="/collections/denim/">All denim ${arrow}</a></div>${imageCard(jeans,0,'denim-inset bone')}</div></section>
   <section class="everyday-feature editorial-grid" aria-labelledby="everyday-title"><div class="editorial-copy saddle"><div class="reveal"><h2 id="everyday-title" class="display">EVERYDAY</h2>${productCaption(tee)}${productPrice(tee)}${button(productURL(tee),'View product')}<a class="quiet-link" href="/collections/tees/">All tees ${arrow}</a></div></div>${imageCard(tee,0,'bone tee-image')}</section>
   <section class="hat-feature editorial-grid" aria-labelledby="hat-title"><div class="hat-copy bone"><h2 id="hat-title" class="display reveal">THE<br>FINISHING<br>TOUCH</h2><div class="hat-product">${productCaption(cap)}${productPrice(cap)}${button(productURL(cap),'View product')}</div>${imageCard(cap,0,'hat-cutout')}</div>${motionMarkup(`<a class="hat-campaign" href="/collections/accessories/" aria-label="Explore Austin Post accessories">${photo('/assets/hats-campaign.jpg','Post Malone wearing a brown AP Snap Back')}<span>Explore accessories ${arrow}</span></a>`,'/assets/motion/hat-editorial-v2.mp4','AP cap campaign film','hat-motion')}</section>
-  <section class="brand-story charcoal"><a class="story-photo" href="/collections/accessories/" aria-label="Discover AP accessories">${photo('/assets/hats-campaign.jpg','AP embroidery and original Austin Post cap craftsmanship')}</a><div><span class="eyebrow">Modern American luxury</span><h2 class="display reveal">GRIT &<br>GRACE.</h2><p>Rooted in the duality of his life, the brand bridges the authenticity of the American West with a refined, modern sensibility.</p>${button('/collections/','Explore the collections')}</div></section>${renderSocial()}`;
+  <section class="brand-story charcoal"><a class="story-photo" href="/collections/accessories/" aria-label="Discover AP accessories">${photo('/assets/hats-campaign.jpg','AP embroidery and original Austin Post cap craftsmanship')}</a><div><span class="eyebrow">Modern American luxury</span><h2 class="display reveal">GRIT &<br>GRACE.</h2><p>Rooted in the duality of his life, the brand bridges the authenticity of the American West with a refined, modern sensibility.</p>${button('/collections/','Explore the collections')}</div></section>${renderSocial()}${renderTour()}`;
 }
 
 function renderCard(p){
@@ -84,7 +85,7 @@ function renderProduct(p){
 }
 
 function render(){
-  disposeMotion();
+  disposeMotion();disposeTour();
   closeMenu();document.querySelector('#bag-dialog').close();document.querySelector('#image-dialog').close();currentProduct=null;
   const path=location.pathname.replace(/\/+$/,'')||'/';let html;
   if(path==='/') {html=renderHome();document.title='Austin Post — Full Throttle';}
@@ -96,7 +97,7 @@ function render(){
   else {html=`<section class="not-found charcoal"><h1 class="display">BACK TO<br>THE EDIT.</h1>${button('/shop/','Explore all pieces')}</section>`;document.title='Explore Austin Post';}
   main.innerHTML=html;document.body.dataset.page=currentProduct?'product':path==='/'?'home':'collection';
   document.querySelectorAll('.desktop-nav a').forEach(a=>{if(path.startsWith(a.getAttribute('href').replace(/\/$/,'')))a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-  setupReveal();setupMotion();updateBagCount();fitHeadlines();
+  setupReveal();setupMotion();setupTour(main);updateBagCount();fitHeadlines();
   if(location.hash) requestAnimationFrame(()=>document.querySelector(location.hash)?.scrollIntoView());
 }
 let revealObserver;

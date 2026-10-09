@@ -1,0 +1,23 @@
+{
+  "verifiedOn": "2026-10-09",
+  "scope": "2026 North American tour and festival appearances, plus the next announced show.",
+  "map": {
+    "dataset": "Natural Earth 1:110m countries and states",
+    "license": "Public domain",
+    "url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "projection": "Albers equal-area (29.5°, 45.5°, central meridian −96°)"
+  },
+  "dates": {
+    "tourAnnouncement": "https://news.livenationentertainment.com/news/post-malone-and-jelly-roll-present-the-big-ass-stadium-tour-part-2",
+    "updates": {
+      "2026-07-02": "https://easyday.org/salute250/",
+      "2026-07-08": "https://www.postmalone.com/gig/wednesday-july-8th-2026-raymond-james-stadium/",
+      "2026-07-25": "https://www.postmalone.com/gig/saturday-july-25th-2026-commonwealth-stadium/",
+      "2026-08-29": "https://www.setlist.fm/setlist/post-malone/2026/musiqart-site-dieppe-nb-canada-7341fa99.html",
+      "2026-10-24": "https://www.postmalone.com/"
+    },
+    "excluded": "Cancelled El Paso, Waco, Baton Rouge, Birmingham and Oxford dates; postponed Asia and Oceania shows without replacement dates.",
+    "cancellationSource": "https://www.9news.com/article/news/nation-world/post-malone-cancels-tour-dates-postpone-2026-tour/507-7ca07b03-06ab-415c-b57c-7fab805f4ab1",
+    "postponementSource": "https://www.news.com.au/entertainment/music/tours/post-malone-postpones-entire-australian-tour-just-weeks-before-first-show/news-story/4da394acefb6ac63c98e58d147fd9949"
+  }
+}
