@@ -28,6 +28,18 @@ function imageCard(p,index=0,cls='') {
   return film?motionMarkup(content,`/assets/motion/${film[2]}`,film[3],cls):content;
 }
 
+function renderSocial(){
+  const instagram='https://www.instagram.com/austinpost/';
+  const icon='<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>';
+  const edit=[
+    ['road-show','Ash-Tray Road Show','Austin Post graphic tees and hoodies hanging on a sunlit chain-link fence'],
+    ['cowboys','Cowboy country','Austin Post Dallas Cowboys graphic tees and cap arranged together'],
+    ['denim-fw26','A study in denim','Austin Post jeans in layered indigo washes with embroidered leather labels'],
+    ['outerwear-fw26','Details, worn in','Shearling-lined Austin Post denim jacket draped over a vintage wooden chair']
+  ];
+  return `<section class="social-section" aria-labelledby="social-title"><div class="social-header reveal"><div><h2 id="social-title" class="display">THE AP WORLD.</h2><p>New chapters. Everyday details. Austin Post.</p></div><a class="social-follow" href="${instagram}" target="_blank" rel="noopener noreferrer" aria-label="Follow @austinpost on Instagram (opens in a new tab)">${icon}<span>@austinpost</span><span aria-hidden="true">↗</span></a></div><div class="social-grid">${edit.map(([name,title,alt],i)=>`<a class="social-card reveal" style="--reveal-delay:${i*45}ms" href="${instagram}" target="_blank" rel="noopener noreferrer" aria-label="Explore Austin Post on Instagram — ${e(title)} (opens in a new tab)"><div class="social-visual"><img src="/assets/social/${name}.webp" alt="${e(alt)}" width="1000" height="1000" loading="lazy" decoding="async"><span class="social-badge">${icon}</span><span class="social-visit">Explore on Instagram <span aria-hidden="true">↗</span></span></div><div class="social-caption"><span>${e(title)}</span><span aria-hidden="true">↗</span></div></a>`).join('')}</div></section>`;
+}
+
 function renderHome(){
   const tee=find('standard-tee-3'),puffer=find('sherpa-lined-puffer-jacket-beige'),jeans=find('rodeo-slim-fit-jeans-lt-indigo'),cap=find('ap-snap-back-2'),shirt=find('daybreak-denim-shirt');
   return `<section class="hero charcoal" aria-labelledby="hero-title">
@@ -45,7 +57,7 @@ function renderHome(){
   <section class="denim-feature editorial-grid" aria-labelledby="denim-title">${imageCard(jeans,2,'model-image')}<div class="editorial-copy charcoal denim-dark"><div class="reveal"><h2 id="denim-title" class="display">DENIM</h2>${productCaption(jeans)}${productPrice(jeans)}${button(productURL(jeans),'View product')}<a class="quiet-link" href="/collections/denim/">All denim ${arrow}</a></div>${imageCard(jeans,0,'denim-inset bone')}</div></section>
   <section class="everyday-feature editorial-grid" aria-labelledby="everyday-title"><div class="editorial-copy saddle"><div class="reveal"><h2 id="everyday-title" class="display">EVERYDAY</h2>${productCaption(tee)}${productPrice(tee)}${button(productURL(tee),'View product')}<a class="quiet-link" href="/collections/tees/">All tees ${arrow}</a></div></div>${imageCard(tee,0,'bone tee-image')}</section>
   <section class="hat-feature editorial-grid" aria-labelledby="hat-title"><div class="hat-copy bone"><h2 id="hat-title" class="display reveal">THE<br>FINISHING<br>TOUCH</h2><div class="hat-product">${productCaption(cap)}${productPrice(cap)}${button(productURL(cap),'View product')}</div>${imageCard(cap,0,'hat-cutout')}</div>${motionMarkup(`<a class="hat-campaign" href="/collections/accessories/" aria-label="Explore Austin Post accessories">${photo('/assets/hats-campaign.jpg','Post Malone wearing a brown AP Snap Back')}<span>Explore accessories ${arrow}</span></a>`,'/assets/motion/hat-editorial-v2.mp4','AP cap campaign film','hat-motion')}</section>
-  <section class="brand-story charcoal"><a class="story-photo" href="/collections/accessories/" aria-label="Discover AP accessories">${photo('/assets/hats-campaign.jpg','AP embroidery and original Austin Post cap craftsmanship')}</a><div><span class="eyebrow">Modern American luxury</span><h2 class="display reveal">GRIT &<br>GRACE.</h2><p>Rooted in the duality of his life, the brand bridges the authenticity of the American West with a refined, modern sensibility.</p>${button('/collections/','Explore the collections')}</div></section>`;
+  <section class="brand-story charcoal"><a class="story-photo" href="/collections/accessories/" aria-label="Discover AP accessories">${photo('/assets/hats-campaign.jpg','AP embroidery and original Austin Post cap craftsmanship')}</a><div><span class="eyebrow">Modern American luxury</span><h2 class="display reveal">GRIT &<br>GRACE.</h2><p>Rooted in the duality of his life, the brand bridges the authenticity of the American West with a refined, modern sensibility.</p>${button('/collections/','Explore the collections')}</div></section>${renderSocial()}`;
 }
 
 function renderCard(p){

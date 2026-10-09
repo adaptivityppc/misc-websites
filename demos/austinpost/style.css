@@ -120,3 +120,27 @@ body[data-page=home] .motion-frame.model-image .image-card:is(:hover,:focus-visi
 /* Preserve the original model panel dimensions as the film begins. */
 body[data-page=home] .motion-frame.model-image>.motion-still{position:absolute;inset:0}
 @media(min-width:761px){body[data-page=home] .motion-frame.model-image{aspect-ratio:3/4}}
+
+/* A quiet, static social edit with local campaign imagery. */
+.social-section{background:var(--bone);color:var(--ink);padding:64px var(--space) 60px}
+.social-header{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:30px}
+.social-header h2{font-size:clamp(52px,6.6vw,100px);line-height:.95;margin:0 0 15px}
+.social-header p{font-size:12px;line-height:1.6;margin:0;color:#625b50}
+.social-follow{display:inline-flex;align-items:center;gap:11px;flex-shrink:0;padding:9px 0;border-bottom:1px solid currentColor;font-size:12px;transition:color .25s}
+.social-follow svg,.social-badge svg{width:20px;height:20px;flex-shrink:0}
+.social-follow:hover{color:var(--red)}
+.social-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.social-card{display:block;min-width:0}
+.social-visual{position:relative;aspect-ratio:1;overflow:hidden;background:#d9d0c1}
+.social-visual>img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .65s var(--ap-ease)}
+.social-badge{position:absolute;top:14px;right:14px;display:grid;place-items:center;width:34px;height:34px;color:var(--bone);background:#211e195e;border-radius:50%;transition:background .25s}
+.social-visit{position:absolute;inset:auto 0 0;padding:28px 16px 15px;display:flex;justify-content:space-between;gap:8px;background:linear-gradient(transparent,#171916ba);color:var(--bone);font-size:10px;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s}
+.social-caption{display:flex;justify-content:space-between;gap:12px;padding-top:14px;font-size:12px;line-height:1.4}
+.social-caption>span:last-child{color:var(--red);transition:transform .25s}
+.social-card:is(:hover,:focus-visible) .social-badge{background:var(--red)}
+.social-card:is(:hover,:focus-visible) .social-visit{opacity:1;transform:none}
+.social-card:is(:hover,:focus-visible) .social-caption>span:last-child{transform:translate(2px,-2px)}
+@media(hover:hover) and (pointer:fine){.social-card:hover .social-visual>img{transform:scale(1.025)}}
+@media(max-width:900px){.social-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 18px}}
+@media(max-width:760px){.social-section{padding:42px 26px 44px}.social-header{align-items:flex-start;flex-direction:column;gap:16px;margin-bottom:24px}.social-header h2{font-size:clamp(48px,11.8vw,80px)}.social-header p{font-size:11px}.social-follow{font-size:11px}.social-grid{gap:24px 14px}.social-caption{font-size:11px;padding-top:11px}.social-badge{width:29px;height:29px;top:9px;right:9px}.social-badge svg{width:17px;height:17px}.social-visit{display:none}}
+@media(prefers-reduced-motion:reduce){.social-card:is(:hover,:focus-visible) .social-visual>img,.social-card:is(:hover,:focus-visible) .social-caption>span:last-child{transform:none}}

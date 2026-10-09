@@ -1,0 +1,43 @@
+{
+  "selection": "Static demo edit of official 2026 Austin Post campaign imagery, not an engagement-ranked selection of verified Instagram posts.",
+  "account": "https://www.instagram.com/austinpost/",
+  "source_page": "https://austin-post.com/",
+  "images": [
+    {
+      "name": "cowboys",
+      "source": "https://austin-post.com/cdn/shop/files/cowboys.jpg?v=1789847747&width=1200",
+      "size": [
+        1000,
+        1000
+      ],
+      "asset": "cowboys.webp"
+    },
+    {
+      "name": "road-show",
+      "source": "https://austin-post.com/cdn/shop/files/260915_ASHTRAYROADSHOW_HP_PORTRAIT_00_42b3d672-616d-4256-adb9-518138910361.jpg?v=1789478514&width=1200",
+      "size": [
+        1200,
+        1515
+      ],
+      "asset": "road-show.webp"
+    },
+    {
+      "name": "outerwear-fw26",
+      "source": "https://austin-post.com/cdn/shop/files/AP_FW26_Studio4259EDIT2_1.jpg?v=1790432548&width=1200",
+      "size": [
+        445,
+        594
+      ],
+      "asset": "outerwear-fw26.webp"
+    },
+    {
+      "name": "denim-fw26",
+      "source": "https://austin-post.com/cdn/shop/files/AP_FW26_Studio5583EDIT_1.jpg?v=1790432548&width=1200",
+      "size": [
+        446,
+        594
+      ],
+      "asset": "denim-fw26.webp"
+    }
+  ]
+}
