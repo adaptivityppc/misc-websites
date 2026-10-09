@@ -36,3 +36,66 @@ dialog{border:0;color:var(--ink);padding:0}dialog::backdrop{background:#171916b3
 .colorways{display:flex;gap:8px;flex-wrap:wrap;margin:-10px 0 24px}.colorways a{border:1px solid var(--line);font-size:9px;padding:9px 11px}.colorways a[aria-current]{border-color:var(--red);color:var(--red)}.hero-index>span{font-family:Stringer,Georgia,serif;font-size:12px}
 
 .brand-band .display{flex:1;min-width:0}.footer-top>div{min-width:0;flex:1}.collection-card h2{right:26px}
+
+/* Homepage polish: brief entrances, one-time reveals, and deliberate rollovers. */
+body[data-page=home]{--ap-ease:cubic-bezier(.22,.68,.2,1)}
+body[data-page=home] .hero-copy>.eyebrow,
+body[data-page=home] .hero h1>span,
+body[data-page=home] .hero-copy>p,
+body[data-page=home] .hero-copy>.button,
+body[data-page=home] .hero-inset,
+body[data-page=home] .hero-index{animation:ap-enter .72s var(--ap-ease) both}
+body[data-page=home] .hero h1>span:first-child{animation-delay:70ms}
+body[data-page=home] .hero h1>span:last-child{animation-delay:150ms}
+body[data-page=home] .hero-copy>p{animation-delay:230ms}
+body[data-page=home] .hero-copy>.button{animation-delay:290ms}
+body[data-page=home] .hero-inset{animation-delay:350ms}
+body[data-page=home] .hero-index{animation-delay:430ms}
+body[data-page=home] .portrait-frame{animation:ap-photo-enter .95s var(--ap-ease) 100ms both}
+body[data-page=home] .portrait-caption{animation:ap-enter .7s var(--ap-ease) 450ms both}
+@keyframes ap-enter{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes ap-photo-enter{from{opacity:0}to{opacity:1}}
+body[data-page=home] .will-reveal{transition:opacity .72s var(--ap-ease),transform .72s var(--ap-ease);transition-delay:var(--reveal-delay,0ms)}
+body[data-page=home] .button{position:relative;overflow:hidden;isolation:isolate;transition:background .3s,box-shadow .35s}
+body[data-page=home] .button:before{content:'';position:absolute;inset:0;z-index:-1;background:#8e1b14;transform:translateX(-101%);transition:transform .4s var(--ap-ease)}
+body[data-page=home] .button>span:last-child{transition:transform .35s var(--ap-ease)}
+body[data-page=home] .button:is(:hover,:focus-visible):before{transform:translateX(0)}
+body[data-page=home] .button:is(:hover,:focus-visible){background:var(--red);box-shadow:0 5px 18px #00000012}
+body[data-page=home] .button:is(:hover,:focus-visible)>span:last-child{transform:translate(3px,-3px)}
+body[data-page=home] :is(.quiet-link,.text-link,.hero-index a,.desktop-nav a,.footer-links a){position:relative}
+body[data-page=home] :is(.quiet-link,.text-link,.hero-index a,.footer-links a):after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ap-ease)}
+body[data-page=home] :is(.quiet-link,.text-link,.hero-index a,.footer-links a):is(:hover,:focus-visible):after,
+body[data-page=home] .desktop-nav a:focus-visible:after{transform:scaleX(1)}
+body[data-page=home] :is(.quiet-link,.text-link,.band-cta)>span{display:inline-block;transition:transform .35s var(--ap-ease)}
+body[data-page=home] :is(.quiet-link,.text-link):is(:hover,:focus-visible)>span,
+body[data-page=home] .brand-band:is(:hover,:focus-visible) .band-cta>span{transform:translate(3px,-3px)}
+body[data-page=home] .image-link-indicator{width:38px;height:38px;transition:opacity .35s,transform .35s var(--ap-ease),background .35s}
+body[data-page=home] .image-card:focus-visible .image-link-indicator{opacity:1;transform:none}
+body[data-page=home] .image-card img{transition:transform .85s var(--ap-ease)}
+body[data-page=home] .detail-image img{transform-origin:center top}
+body[data-page=home] .hero-inset:before{transition:transform .65s var(--ap-ease)}
+body[data-page=home] .hero-inset:is(:hover,:focus-visible):before{transform:translate(3px,-3px)}
+@media(hover:hover) and (pointer:fine){
+  body[data-page=home] .image-card:is(:hover,:focus-visible) img{transform:scale(1.035)}
+  body[data-page=home] .hero-inset:focus-visible img{transform:translate(4px,-4px)}
+  body[data-page=home] .story-photo img{transition:transform 1s var(--ap-ease)}
+  body[data-page=home] .story-photo:is(:hover,:focus-visible) img{transform:translateY(-50%) scale(1.035)}
+  body[data-page=home] .hat-campaign img{transition:transform 1s var(--ap-ease);transform-origin:right center}
+  body[data-page=home] .hat-campaign:is(:hover,:focus-visible) img{transform:scale(1.025)}
+}
+@media(max-width:760px){
+  @keyframes ap-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  body[data-page=home] .hero-inset{animation-delay:290ms}
+  body[data-page=home] .portrait-frame{animation-delay:0ms}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page=home] .will-reveal{opacity:1;transform:none}
+  body[data-page=home] :is(.image-card,.hat-campaign):is(:hover,:focus-visible) img,
+  body[data-page=home] .hero-inset:focus-visible img{transform:none}
+  body[data-page=home] .story-photo:is(:hover,:focus-visible) img{transform:translateY(-50%)}
+  body[data-page=home] .button:before{display:none}
+  body[data-page=home] .button:is(:hover,:focus-visible){background:#971710}
+  body[data-page=home] :is(.button,.quiet-link,.text-link):is(:hover,:focus-visible)>span:last-child,
+  body[data-page=home] .brand-band:is(:hover,:focus-visible) .band-cta>span,
+  body[data-page=home] .hero-inset:is(:hover,:focus-visible):before{transform:none}
+}
