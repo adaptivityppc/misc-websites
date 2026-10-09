@@ -1,6 +1,6 @@
 import {categories,escapeHTML as e,money,filterProducts,priceHTML,addToBag,bagTotal} from './store.js';
 import {motionMarkup,setupMotion,disposeMotion,pauseMotion,setMotionEnabled} from './motion.js';
-import {renderTour,setupTour,disposeTour} from './tour.js?v=tour-city-photos-1';
+import {renderTour,setupTour,disposeTour} from './tour.js?v=tour-mobile-1';
 
 let products=[], catalog={}, currentProduct=null, galleryIndex=0, selectedVariant=null;
 let bag=[];

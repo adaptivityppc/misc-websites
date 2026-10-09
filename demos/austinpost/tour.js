@@ -1,5 +1,5 @@
 import {escapeHTML as e} from './store.js';
-import {stops, tourMeta} from './tour-data.js?v=tour-city-photos-1';
+import {stops, tourMeta} from './tour-data.js?v=tour-mobile-1';
 
 const HOLD=2300, FLIGHT=1900;
 const shortDate=date=>new Intl.DateTimeFormat('en-US',{month:'short',day:'numeric',timeZone:'UTC'}).format(new Date(date+'T12:00:00Z'));
@@ -32,6 +32,11 @@ export function flightPoint(a,b,t){
     angle:Math.atan2(2*u*(c.y-a.y)+2*t*(b.y-c.y),2*u*(c.x-a.x)+2*t*(b.x-c.x))*180/Math.PI};
 }
 export function travelProgress(t){t=Math.max(0,Math.min(1,t));return t*t*(3-2*t);}
+export function mapCamera(point,width,height,follow=false){
+  const scale=Math.min(width/1000,height/620)*(follow?2.35:1);
+  return {scale,x:follow?width/2-point.x*scale:(width-1000*scale)/2,
+    y:follow?height/2-point.y*scale:(height-620*scale)/2};
+}
 export function groupStops(items){
   const groups=new Map();items.forEach((stop,index)=>{const key=`${stop.city}|${stop.region}|${stop.country}`;
     if(!groups.has(key))groups.set(key,{stop,indices:[]});groups.get(key).indices.push(index);});
@@ -82,9 +87,9 @@ export function renderTour(now=new Date()){
     <header class="tour-header"><div class="reveal"><span class="tour-eyebrow">Post Malone / The 2026 chapter</span><h2 id="tour-title" class="display">ON THE ROAD.</h2><p>One show. One city. Another chapter.</p></div><div class="tour-header-note"><span>THE TOUR JOURNAL</span><span>North America · 2026</span></div></header>
     <div class="tour-console" data-tour>
       <div class="tour-stage-layout">
-        <div class="tour-map-window" tabindex="0" aria-label="Concert map. Select a dot to pause and explore a show. On smaller screens, scroll sideways to explore the map.">
+        <div class="tour-map-window" tabindex="0" aria-label="Concert map. Pause the journey to see the full map, then select a dot to explore a show.">
           <div class="tour-map-canvas">
-            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-city-photos-1" width="1000" height="620" alt="" loading="lazy" decoding="async">
+            <img class="tour-basemap" src="/assets/tour/north-america.svg?v=tour-mobile-1" width="1000" height="620" alt="" loading="lazy" decoding="async">
             <svg class="tour-route-map" viewBox="0 0 1000 620" aria-hidden="true">
               <g class="tour-planned-routes">${positions.slice(1).map((point,i)=>`<path d="${flightPath(positions[i],point)}" class="${showStatus(stops[i+1],now)==='past'?'':'is-future'}"/>`).join('')}</g>
               <g class="tour-travelled-routes">${positions.slice(1).map((point,i)=>`<path data-tour-leg="${i}" d="${flightPath(positions[i],point)}" pathLength="1"/>`).join('')}</g>
@@ -94,17 +99,18 @@ export function renderTour(now=new Date()){
             <div class="tour-map-label" data-tour-label aria-hidden="true"></div>
             <span class="tour-map-stamp" aria-hidden="true">AP / FIELD NOTES<br>VOLUME 2026</span>
           </div>
+          <span class="tour-mobile-hint" data-tour-map-hint>Tap a dot to explore</span>
         </div>
+      <div class="tour-controls">
+        <div class="tour-transport"><button type="button" class="tour-play" data-tour-play aria-label="Play tour animation">${playIcon}<span>Play the journey</span></button><button type="button" class="tour-restart" data-tour-restart aria-label="Restart tour animation">↺</button></div>
+        <div class="tour-legend"><span><i class="past"></i>Past shows</span><span><i class="current"></i>Selected stop</span><span><i class="future"></i>Upcoming</span></div>
+        <div class="tour-next-prev"><button type="button" data-tour-prev aria-label="Previous concert">←</button><button type="button" data-tour-next aria-label="Next concert">→</button></div>
+      </div>
         <aside class="tour-stop-card" aria-label="Selected concert">
           <div class="tour-card-top"><span data-tour-counter>01 / ${stops.length}</span><span class="tour-status" data-tour-status>Past show</span></div>
           <div class="tour-card-main"><p class="tour-flight-status" data-tour-flight>At the first stop</p><h3 data-tour-city>${e(stops[0].city)}</h3><p class="tour-region" data-tour-region>${e(stops[0].region)} / ${e(stops[0].country)}</p><figure class="tour-photo" data-tour-photo hidden></figure><div class="tour-card-rule"></div><time data-tour-date datetime="${stops[0].date}">${longDate(stops[0].date)}</time><p class="tour-venue" data-tour-venue>${e(stops[0].venue)}</p><p class="tour-show-note" data-tour-note></p><div class="tour-other-dates" data-tour-other-dates></div></div>
           <a data-tour-source href="${e(stops[0].source)}" target="_blank" rel="noopener noreferrer">Show details <span aria-hidden="true">↗</span></a>
         </aside>
-      </div>
-      <div class="tour-controls">
-        <div class="tour-transport"><button type="button" class="tour-play" data-tour-play aria-label="Play tour animation">${playIcon}<span>Play the journey</span></button><button type="button" class="tour-restart" data-tour-restart aria-label="Restart tour animation">↺</button></div>
-        <div class="tour-legend"><span><i class="past"></i>Past shows</span><span><i class="current"></i>Selected stop</span><span><i class="future"></i>Upcoming</span></div>
-        <div class="tour-next-prev"><button type="button" data-tour-prev aria-label="Previous concert">←</button><button type="button" data-tour-next aria-label="Next concert">→</button></div>
       </div>
       <div class="tour-timeline-heading"><span>THE TIMELINE / ${stops.length} SHOWS</span><span>Choose a date or a dot to explore <span aria-hidden="true">↗</span></span></div>
       <div class="tour-timeline" aria-label="Concert timeline">${stops.map((stop,i)=>`<button type="button" data-tour-select="${i}" class="tour-timeline-stop ${showStatus(stop,now)==='past'?'':'is-future'}" aria-pressed="false" aria-label="${e(stop.city)}, ${e(stop.region)} — ${longDate(stop.date)}"><span class="tour-timeline-date">${shortDate(stop.date)} <span>2026</span></span><span class="tour-timeline-dot"></span><span class="tour-timeline-city">${e(stop.city)}</span><span class="tour-timeline-region">${e(stop.abbr)} / ${e(stop.country)}</span></button>`).join('')}</div>
@@ -119,15 +125,18 @@ export function disposeTour(){cleanup();cleanup=()=>{};}
 export function setupTour(root=document){
   disposeTour();const host=root.querySelector('[data-tour]');if(!host)return;
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const mobile=matchMedia('(max-width: 760px)');
   const player=createTourPlayer(stops.length,reduced.matches),q=selector=>host.querySelector(selector);
   const pins=[...host.querySelectorAll('[data-tour-pin]')],timeline=[...host.querySelectorAll('[data-tour-select]')];
   const legs=[...host.querySelectorAll('[data-tour-leg]')],plane=q('[data-tour-plane]'),label=q('[data-tour-label]');
+  const mapWindow=q('.tour-map-window'),canvas=q('.tour-map-canvas');
+  let camera=null,viewport={width:mapWindow.clientWidth,height:mapWindow.clientHeight};
   let frame=0,lastTime=null,activeIndex=-1,lastPhase='',lastPlaying=null,inView=false,visited=false,disposed=false,cardAnimation=null;
   const listeners=[];
   const on=(target,event,fn)=>{target.addEventListener(event,fn);listeners.push(()=>target.removeEventListener(event,fn));};
   function announce(){const stop=stops[player.state.index];q('[data-tour-announcement]').textContent=`${stop.city}, ${stop.region}. ${longDate(stop.date)}. ${stop.venue}.`;
   }
-  function paint(){
+  function paint(delta=16){
     const s=player.state,stop=stops[s.index];
     if(activeIndex!==s.index){
       activeIndex=s.index;lastPhase='';q('[data-tour-counter]').textContent=`${String(s.index+1).padStart(2,'0')} / ${stops.length}`;
@@ -157,11 +166,21 @@ export function setupTour(root=document){
     legs.forEach((leg,i)=>{leg.classList.toggle('is-recent',i===s.index-1);leg.classList.toggle('is-active',i===s.index&&s.phase==='flight');leg.style.strokeDashoffset=String(i<s.index?0:i===s.index&&s.phase==='flight'?1-progress:1);});
     const p=s.phase==='flight'?flightPoint(positions[s.index],positions[s.index+1],progress):{...positions[s.index],angle:0};
     plane.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle})`);
+    const follow=mobile.matches&&s.playing&&!reduced.matches;
+    host.classList.toggle('is-following',follow);
+    q('[data-tour-map-hint]').textContent=follow?'Following the journey · Pause to explore':'Tap a dot to explore';
+    if(mobile.matches&&viewport.width>0&&viewport.height>0){
+      const target=mapCamera(p,viewport.width,viewport.height,follow);
+      if(!camera||!follow)camera=target;
+      else{const alpha=1-Math.exp(-Math.max(0,delta)/180);for(const key of ['x','y','scale'])camera[key]+=(target[key]-camera[key])*alpha;}
+      canvas.style.transform=`translate(${camera.x}px,${camera.y}px) scale(${camera.scale})`;
+      canvas.style.setProperty('--tour-camera-scale',String(camera.scale));
+    }else{camera=null;canvas.style.transform='';canvas.style.removeProperty('--tour-camera-scale');}
   }
   function pause(){player.pause();cancelAnimationFrame(frame);frame=0;lastTime=null;paint();}
   function step(time){
     if(disposed||!player.state.playing)return;
-    const elapsed=lastTime===null?0:Math.min(time-lastTime,100);lastTime=time;player.tick(elapsed);paint();
+    const elapsed=lastTime===null?0:Math.min(time-lastTime,100);lastTime=time;player.tick(elapsed);paint(elapsed);
     if(player.state.playing)frame=requestAnimationFrame(step);else{frame=0;lastTime=null;announce();}
   }
   function play(){visited=true;if(document.hidden)return;player.play();paint();lastTime=null;cancelAnimationFrame(frame);frame=requestAnimationFrame(step);}
@@ -179,8 +198,13 @@ export function setupTour(root=document){
   on(host,'focusin',event=>{if(event.target.matches('[data-tour-pin],[data-tour-select]')){visited=true;pause();}});
   on(document,'visibilitychange',()=>{if(document.hidden)pause();});
   on(reduced,'change',()=>{visited=true;player.setReduced(reduced.matches);pause();});
+  function resize(){viewport={width:mapWindow.clientWidth,height:mapWindow.clientHeight};camera=null;paint();}
+  on(mobile,'change',resize);
+  let mapObserver;
+  if(typeof ResizeObserver!=='undefined'){mapObserver=new ResizeObserver(resize);mapObserver.observe(mapWindow);}
+  else if(window.addEventListener)on(window,'resize',resize);
   let observer;
   if('IntersectionObserver' in window){observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;if(!inView)pause();else if(!visited&&!reduced.matches)play();},{threshold:.25});observer.observe(q('.tour-map-window'));}
   paint();
-  cleanup=()=>{disposed=true;player.pause();cancelAnimationFrame(frame);cardAnimation?.cancel();observer?.disconnect();listeners.forEach(off=>off());};
+  cleanup=()=>{disposed=true;player.pause();cancelAnimationFrame(frame);cardAnimation?.cancel();observer?.disconnect();mapObserver?.disconnect();listeners.forEach(off=>off());};
 }

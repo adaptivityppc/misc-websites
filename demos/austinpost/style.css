@@ -155,8 +155,9 @@ body[data-page=home] .motion-frame.model-image>.motion-still{position:absolute;i
 .tour-header-note{text-align:right;display:grid;gap:9px;padding-bottom:4px;color:#665d50;line-height:1.4}
 .tour-header-note>span:first-child{color:#bc2119}
 .tour-console{border:1px solid var(--line);background:var(--bone)}
-.tour-stage-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px}
-.tour-map-window{overflow:auto;position:relative;min-width:0;background:var(--ink);scrollbar-width:thin;scrollbar-color:#8e8170 #211e19}
+.tour-stage-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;grid-template-areas:'map card' 'controls controls'}
+.tour-map-window{grid-area:map;overflow:auto;position:relative;min-width:0;background:var(--ink);scrollbar-width:thin;scrollbar-color:#8e8170 #211e19}
+.tour-stop-card{grid-area:card}.tour-controls{grid-area:controls}.tour-mobile-hint{display:none}
 .tour-map-window:focus-visible{outline:2px solid #bc2119;outline-offset:-3px}
 .tour-map-canvas{width:100%;aspect-ratio:1000/620;position:relative;isolation:isolate;overflow:hidden}
 .tour-basemap,.tour-route-map{position:absolute;inset:0;width:100%;height:100%;max-width:none;pointer-events:none;object-fit:fill}
@@ -269,3 +270,25 @@ body[data-page=home] .motion-frame.model-image>.motion-still{position:absolute;i
 
 /* Keep concert postcards comfortably within the map column. */
 @media(min-width:761px){.tour-stop-card:has(.tour-photo:not([hidden])){padding:20px 24px}.tour-stop-card:has(.tour-photo:not([hidden])) .tour-card-main{padding:18px 0}.tour-stop-card:has(.tour-photo:not([hidden])) h3{font-size:44px}.tour-stop-card:has(.tour-photo:not([hidden])) .tour-flight-status{margin-bottom:8px;min-height:20px}.tour-stop-card:has(.tour-photo:not([hidden])) .tour-photo{margin-top:12px}.tour-stop-card:has(.tour-photo:not([hidden])) time{font-size:15px}.tour-stop-card:has(.tour-photo:not([hidden])) .tour-venue{font-size:12px;margin-top:6px}.tour-stop-card:has(.tour-photo:not([hidden])) .tour-card-rule{margin:12px 0 10px}.tour-stop-card:has(.tour-photo:not([hidden]))>a{padding-top:12px}.tour-photo>a{aspect-ratio:16/9}}
+
+/* Mobile tour: a quiet full-map view, with a camera that follows playback. */
+@media(max-width:760px){
+ .tour-section{padding-left:18px;padding-right:18px}
+ .tour-map-window{height:clamp(280px,78vw,340px);overflow:hidden;touch-action:pan-y}
+ .tour-map-canvas{width:1000px;height:620px;min-width:0;aspect-ratio:auto;transform-origin:0 0;will-change:transform;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+ .is-playing .tour-map-canvas{transition:none}
+ .tour-map-stamp,.tour-map-label,.tour-timeline-heading,.tour-timeline,.tour-legend,.tour-restart,.tour-next-prev{display:none}
+ .tour-mobile-hint{display:block;position:absolute;left:14px;bottom:12px;font-size:10px;letter-spacing:.025em;color:#eee7d9b3;pointer-events:none;background:#211e19c9;padding:6px 9px}
+ .tour-pin{width:calc(44px / var(--tour-camera-scale,1));height:calc(44px / var(--tour-camera-scale,1))}
+ .tour-pin>span{width:calc(5px / var(--tour-camera-scale,1));height:calc(5px / var(--tour-camera-scale,1));border-width:calc(1px / var(--tour-camera-scale,1));box-shadow:none}
+ .tour-pin:is(.is-selected,.is-future)>span{width:calc(8px / var(--tour-camera-scale,1));height:calc(8px / var(--tour-camera-scale,1))}
+ .tour-pin.is-selected>span{animation:none;box-shadow:0 0 0 3px #bc211933}
+ .tour-controls{padding:12px 14px;display:block}
+ .tour-transport{display:block}.tour-play{width:100%;font-size:12px;min-height:46px}
+ .tour-stop-card{padding:18px 20px}
+ .tour-card-main,.tour-stop-card .tour-card-main{padding:16px 0 14px;column-gap:18px}
+ .tour-stop-card h3{font-size:clamp(32px,9vw,40px)}
+ .tour-photo{margin-top:10px}
+ .tour-footnote>span{display:none}.tour-footnote{margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){.tour-map-canvas{transition:none}}
